@@ -6,16 +6,15 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/13 12:18:29 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/02/17 17:04:05 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/02/19 16:22:11 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
 
-# define VIDE	0
-# define PLEIN	1
-
+# define EMPTY	0
+# define FULL	1
 # include <libft.h>
 # include <stdio.h>
 # include <get_next_line.h>
@@ -33,7 +32,9 @@ typedef struct		s_env
 	int				z;
 	int				p;
 	int				k;
+	char			*line;
 	int				tmpk;
+	char			**tmp;
 }					t_env;
 
 typedef struct		s_listt
@@ -45,19 +46,17 @@ typedef struct		s_listt
 	struct s_listt	*prev;
 }					t_listt;
 
-char		*ft_search(t_env *env, char *salle, int k);
-int			ft_del_tube_start(t_env *env, int i);
+char		*ft_search(t_env *env, char *room, int k);
 t_listt		*add_list(char *name, t_listt *list, t_env *env);
-void		ft_del_tube(t_env *env, int i);
+int			ft_del_tube(t_env *env, int i);
 int			ft_del_tube_start(t_env *env, int i);
-char		*ft_search_first(t_env *env, char *salle, int k);
-char		*ft_search(t_env *env, char *salle, int k);
-void		ft_stocks_e(t_env *env, char *line);
+char		*ft_search_first(t_env *env, char *room);
+void		ft_stocks_necessary(t_env *env, char *line);
 void		ft_stock(t_env *env, char *line, char *tmp[], t_listt *list);
 void		ft_stock_tube(t_env *env, char *tmp[]);
 void		init_env(t_env *env);
-void		ft_rempli_list(t_listt *list, t_env *env, char *salle, int k);
-void		ft_parcour(t_listt *list, t_env *env);
+void		ft_fill_list(t_listt *list, t_env *env, char *room);
+void		ft_print_ant_way(t_listt *list, t_env *env);
 
 #endif /* !LEM-IN_H */
 

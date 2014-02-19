@@ -6,7 +6,7 @@
 #    By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/13 12:07:57 by bmikaeli          #+#    #+#              #
-#    Updated: 2014/02/17 17:02:07 by bmikaeli         ###   ########.fr        #
+#    Updated: 2014/02/19 15:25:25 by bmikaeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Werror -Wextra
 SRCS_D = srcs/
 OBJS_D = objs/
 HEADERS = includes/
-SRCS = main.c search.c tubes_rooms.c
+SRCS = main.c search.c rooms.c tubes.c ant.c
 
 OBJS = $(SRCS:.c=.o)
 OBJS_P = $(addprefix $(OBJS_D), $(OBJS))
