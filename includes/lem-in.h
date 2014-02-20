@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/13 12:18:29 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/02/19 16:22:11 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/02/20 13:45:23 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct		s_listt
 	struct s_listt	*prev;
 }					t_listt;
 
+void		print_path(int nb_ant, char *room);
 char		*ft_search(t_env *env, char *room, int k);
 t_listt		*add_list(char *name, t_listt *list, t_env *env);
 int			ft_del_tube(t_env *env, int i);

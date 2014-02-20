@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/19 11:44:37 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/02/19 16:20:37 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/02/20 13:45:20 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,14 @@ void	ft_stock_tube(t_env *env, char *tmp[])
 	}
 	env->tube[env->k] = NULL;
 	env->k--;
+}
+
+
+void	print_path(int nb_ant, char *room)
+{
+	ft_putstr("L");
+	ft_putnbr(nb_ant);
+	ft_putchar(' ');
+	ft_putstr(room);
+	ft_putstr(" ");
 }

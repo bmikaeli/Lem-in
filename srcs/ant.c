@@ -6,23 +6,23 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/19 11:47:26 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/02/19 16:19:36 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/02/20 13:45:00 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <lem-in.h>
 
-void		ft_rempli_list(t_listt *list, t_env *env, char *salle, int k)
+void		ft_rempli_list(t_listt *list, t_env *env, char *room, int k)
 {
 	env->k = k;
-	salle = ft_search(env, salle);
+	room = ft_search(env, room, k);
 	k--;
-	if (ft_strcmp(salle, env->name_e) != 0 && k >= 0)
+	if (ft_strcmp(room, env->name_e) != 0 && k >= 0)
 	{
-		list = add_list(salle, list, env);
-		ft_rempli_list(list, env, salle, k);
+		list = add_list(room, list, env);
+		ft_rempli_list(list, env, room, k);
 	}
-	if (ft_strcmp(salle, env->name_e) == 0)
+	if (ft_strcmp(room, env->name_e) == 0)
 		list = add_list(env->name_e, list, env);
 }
 
@@ -30,7 +30,7 @@ int			ft_print_last(t_env *env, t_listt *list, int tmp)
 {
 	if (env->z == 1)
 	{
-		printf("L%d %s ", tmp - 1, env->name_e);
+		print_path(tmp - 1, env->name_e);
 		env->z = 0;
 	}
 	if (ft_strcmp(list->next->name, env->name_e) == 0)
@@ -47,12 +47,12 @@ void		ft_print_start(int tmp, t_listt *list, t_env *env, t_listt *start)
 	if (ft_strcmp(list->name, start->name) == 0)
 	{
 		if (tmp < env->nb_fourmie)
-			printf("L%d %s ", tmp, list->name);
+			print_path(tmp, list->name);
 		list->next->rempli = FULL;
 		list->rempli = EMPTY;
 		tmp++;
 	}
-	printf("\n");
+	ft_putchar('\n');
 }
 
 int			ft_print(t_listt *list, t_listt *start, t_env *env, int tmp)
@@ -65,7 +65,7 @@ int			ft_print(t_listt *list, t_listt *start, t_env *env, int tmp)
 	while (ft_strcmp(list->name, start->name) != 0)
 	{
 		if (tmp < env->nb_fourmie)
-			printf("L%d %s ", tmp ,list->name);
+			print_path(tmp, list->name);
 		if (ft_strcmp(list->next->name, env->name_e) == 0)
 			list->rempli = EMPTY;
 		else

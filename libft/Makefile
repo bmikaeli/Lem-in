@@ -6,7 +6,7 @@
 #    By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 13:14:22 by bmikaeli          #+#    #+#              #
-#    Updated: 2014/01/22 17:00:53 by bmikaeli         ###   ########.fr        #
+#    Updated: 2014/02/20 13:37:59 by bmikaeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,7 @@ SRCS = ft_putchar.c\
 		ft_lstfree.c\
 		ft_removeduplicates.c\
 		get_next_line.c
+
 OBJS = $(SRCS:.c=.o)
 OBJS_P = $(addprefix $(OBJS_D), $(OBJS))
 
