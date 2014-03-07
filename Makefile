@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC = clang
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 SRCS_D = srcs/
 OBJS_D = objs/
 HEADERS = includes/

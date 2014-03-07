@@ -14,12 +14,12 @@
 
 void		ft_stocks_necessary(t_env *env, char *line)
 {
-	if (ft_strstr(line, "##start"))
+	if (!ft_strcmp(line, "##start"))
 	{
 		env->z = 1;
 		env->i--;
 	}
-	if (ft_strstr(line, "##end"))
+	if (!ft_strcmp(line, "##end"))
 	{
 		env->z = 42;
 		env->i--;
@@ -29,7 +29,7 @@ void		ft_stocks_necessary(t_env *env, char *line)
 void		ft_stock(t_env *env, char *line, char *tmp[], t_listt *list)
 {
 	env->tmp2  = ft_strsplit(line, ' ');
-	if (ft_strncmp(line, "##", 2) == 0)
+	if (!ft_strncmp(line, "##", 2))
 		env->i--;
 	else
 		tmp[env->i] = ft_strdup(env->tmp2[0]);

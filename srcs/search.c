@@ -30,13 +30,13 @@ t_listt		*add_list(char *name, t_listt *list, t_env *env)
 void		ft_fill_list(t_listt *list, t_env *env, char *room)
 {
 	room = ft_search(env, room, env->k);
-	if (ft_strcmp(room, env->name_e) != 0 && env->k - 1 >= 0)
+	if (ft_strcmp(room, env->name_e) && env->k - 1 >= 0)
 	{
 		list = add_list(room, list, env);
 		env->k--;
 		ft_fill_list(list, env, room);
 	}
-	if (ft_strcmp(room, env->name_e) == 0)
+	if (!ft_strcmp(room, env->name_e))
 		list = add_list(env->name_e, list, env);
 	env->k++;
 }
@@ -50,12 +50,17 @@ char		*ft_search_first(t_env *env, char *room)
 	while (env->k-- >= 0)
 	{
 		tmp = ft_strsplit(env->tube[env->k], '-');
-		if (ft_strcmp(tmp[0], room) == 0)
+		if (!tmp[0] || !tmp[1])
+		{
+			ft_putstr("map_error\n");
+			exit(1);
+		}
+		if (!ft_strcmp(tmp[0], room))
 		{
 			env->k = tmp_k;
 			return (tmp[1]);
 		}
-		else if (ft_strcmp(tmp[1], room) == 0)
+		else if (!ft_strcmp(tmp[1], room))
 		{
 			env->k = tmp_k;
 			return (tmp[0]);
@@ -74,10 +79,14 @@ char		*ft_search(t_env *env, char *room, int k)
 	while (i_tmp >= 0)
 	{
 		tmp = ft_strsplit(env->tube[i_tmp], '-');
-		if (ft_strcmp(tmp[0], room) == 0 || ft_strcmp(tmp[1], room) == 0)
+		if (!tmp[0] || !tmp[1])
 		{
-			if (ft_strcmp(tmp[0], env->name_e) == 0 ||
-				ft_strcmp(tmp[1], env->name_e) == 0)
+			ft_putstr("map_error\n");
+			exit(1);
+		}
+		if (!ft_strcmp(tmp[0], room) || !ft_strcmp(tmp[1], room))
+		{
+			if (!ft_strcmp(tmp[0], env->name_e) || !ft_strcmp(tmp[1], env->name_e))
 				return (env->name_e);
 		}
 		i_tmp--;
@@ -85,9 +94,9 @@ char		*ft_search(t_env *env, char *room, int k)
 	while (k >= 0)
 	{
 		tmp = ft_strsplit(env->tube[k], '-');
-		if (ft_strcmp(tmp[0], room) == 0 && ft_del_tube(env, k))
+		if (!ft_strcmp(tmp[0], room) && ft_del_tube(env, k))
 			return (tmp[1]);
-		else if (ft_strcmp(tmp[1], room) == 0 && ft_del_tube(env, k))
+		else if (!ft_strcmp(tmp[1], room) && ft_del_tube(env, k))
 			return (tmp[0]);
 		k--;
 	}

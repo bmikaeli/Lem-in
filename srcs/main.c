@@ -36,7 +36,6 @@ int			main(void)
 	while (get_next_line(0, &env.line) == 1)
 		ft_stock(&env, env.line, env.tmp, &list);
 	ft_stock_tube(&env, env.tmp);
-	free(env.tmp);
 	list = *(add_list(ft_search_first(&env, env.name_s), &list, &env));
 	env.tmpk = env.k;
 	env.p = 0;
