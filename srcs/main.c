@@ -22,6 +22,8 @@ void		init_env(t_env *env)
 	env->count = 0;
 	env->nb_fourmie = 0;
 	env->tmp2 = NULL;
+	env->name_s = ft_strdup("kikoololilol");
+	env->name_e = ft_strdup("kikoololilol");
 	env->tmp = (char **)malloc(sizeof(env->tmp) * 255);
 }
 

@@ -14,6 +14,16 @@
 
 void		ft_stocks_necessary(t_env *env, char *line)
 {
+	if (!ft_strcmp(line, "##end") && ft_strcmp(env->name_e, "kikoololilol"))
+	{
+		printf("map end\n");
+		exit(0);
+	}
+	if (!ft_strcmp(line, "##start") && ft_strcmp(env->name_s, "kikoololilol"))
+	{
+		printf("map start\n");
+		exit(0);
+	}
 	if (!ft_strcmp(line, "##start"))
 	{
 		env->z = 1;
@@ -28,6 +38,8 @@ void		ft_stocks_necessary(t_env *env, char *line)
 
 void		ft_stock(t_env *env, char *line, char *tmp[], t_listt *list)
 {
+	if (!line[0] || (line[0] == '#' && line[1] != '#'))
+		return ;
 	env->tmp2  = ft_strsplit(line, ' ');
 	if (!ft_strncmp(line, "##", 2))
 		env->i--;

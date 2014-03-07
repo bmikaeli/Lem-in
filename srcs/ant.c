@@ -33,7 +33,7 @@ int			ft_print_last(t_env *env, t_listt *list, int tmp)
 		print_path(tmp - 1, env->name_e);
 		env->z = 0;
 	}
-	if (ft_strcmp(list->next->name, env->name_e) == 0)
+	if (list->next && !ft_strcmp(list->next->name, env->name_e))
 	{
 		if (tmp < env->nb_fourmie && list->rempli == FULL)
 			env->z = 1;
@@ -44,7 +44,7 @@ int			ft_print_last(t_env *env, t_listt *list, int tmp)
 
 void		ft_print_start(int tmp, t_listt *list, t_env *env, t_listt *start)
 {
-	if (ft_strcmp(list->name, start->name) == 0)
+	if (!ft_strcmp(list->name, start->name))
 	{
 		if (tmp < env->nb_fourmie)
 			print_path(tmp, list->name);
@@ -59,18 +59,19 @@ int			ft_print(t_listt *list, t_listt *start, t_env *env, int tmp)
 {
 	tmp = env->rempli_e;
 	list = start;
-	while (list->next->rempli == FULL)
+	while (list->next && list->next->rempli == FULL)
 		list = list->next;
 	env->z = ft_print_last(env, list, tmp);
-	while (ft_strcmp(list->name, start->name) != 0)
+	while (list && ft_strcmp(list->name, start->name))
 	{
 		if (tmp < env->nb_fourmie)
 			print_path(tmp, list->name);
-		if (ft_strcmp(list->next->name, env->name_e) == 0)
+		if (list->next && !ft_strcmp(list->next->name, env->name_e))
 			list->rempli = EMPTY;
 		else
 		{
-			list->next->rempli = FULL;
+			if (list->next)
+				list->next->rempli = FULL;
 			list->rempli = EMPTY;
 		}
 		list = list->prev;
