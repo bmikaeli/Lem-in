@@ -59,6 +59,7 @@ int			ft_print(t_listt *list, t_listt *start, t_env *env, int tmp)
 {
 	tmp = env->rempli_e;
 	list = start;
+
 	while (list->next && list->next->rempli == FULL)
 		list = list->next;
 	env->z = ft_print_last(env, list, tmp);

@@ -58,6 +58,7 @@ void		ft_stock_tube(t_env *env, char *tmp[]);
 void		init_env(t_env *env);
 void		ft_fill_list(t_listt *list, t_env *env, char *room);
 void		ft_print_ant_way(t_listt *list, t_env *env);
+void		check_boucle(char *name);
 
 #endif /* !LEM-IN_H */
 

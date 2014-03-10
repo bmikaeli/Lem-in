@@ -70,6 +70,22 @@ char		*ft_search_first(t_env *env, char *room)
 	return (room);
 }
 
+char		*ft_search2(t_env *env, char*room, int k)
+{
+	char	**tmp;
+
+	while (k >= 0)
+	{
+		tmp = ft_strsplit(env->tube[k], '-');
+		if (!ft_strcmp(tmp[0], room) && ft_del_tube(env, k))
+			return (tmp[1]);
+		else if (!ft_strcmp(tmp[1], room) && ft_del_tube(env, k))
+			return (tmp[0]);
+		k--;
+	}
+	return (room);
+}
+
 char		*ft_search(t_env *env, char *room, int k)
 {
 	char	**tmp;
@@ -86,19 +102,11 @@ char		*ft_search(t_env *env, char *room, int k)
 		}
 		if (!ft_strcmp(tmp[0], room) || !ft_strcmp(tmp[1], room))
 		{
-			if (!ft_strcmp(tmp[0], env->name_e) || !ft_strcmp(tmp[1], env->name_e))
+			if (!ft_strcmp(tmp[0], env->name_e) ||
+				!ft_strcmp(tmp[1], env->name_e))
 				return (env->name_e);
 		}
 		i_tmp--;
 	}
-	while (k >= 0)
-	{
-		tmp = ft_strsplit(env->tube[k], '-');
-		if (!ft_strcmp(tmp[0], room) && ft_del_tube(env, k))
-			return (tmp[1]);
-		else if (!ft_strcmp(tmp[1], room) && ft_del_tube(env, k))
-			return (tmp[0]);
-		k--;
-	}
-	return (room);
+	return (ft_search2(env, room, k));
 }

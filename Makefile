@@ -15,7 +15,7 @@ CFLAGS = -Wall -Werror -Wextra -g
 SRCS_D = srcs/
 OBJS_D = objs/
 HEADERS = includes/
-SRCS = main.c search.c rooms.c tubes.c ant.c
+SRCS = main.c search.c rooms.c tubes.c ant.c error.c
 
 OBJS = $(SRCS:.c=.o)
 OBJS_P = $(addprefix $(OBJS_D), $(OBJS))

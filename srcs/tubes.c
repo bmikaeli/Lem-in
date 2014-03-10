@@ -55,6 +55,7 @@ void	ft_stock_tube(t_env *env, char *tmp[])
 
 void	print_path(int nb_ant, char *room)
 {
+	check_boucle(room);
 	ft_putstr("L");
 	ft_putnbr(nb_ant);
 	ft_putchar(' ');
