@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/17 14:50:27 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/03/12 14:56:38 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/03/12 15:15:46 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void		ft_stocks_necessary(t_env *env, char *line)
 {
 	if (!ft_strcmp(line, "##end") && ft_strcmp(env->name_e, "kikoololilol"))
 	{
-		printf("map end error\n");
+		printf("⚠️ map end error ⚠️ \n");
 		exit(0);
 	}
 	if (!ft_strcmp(line, "##start") && ft_strcmp(env->name_s, "kikoololilol"))
 	{
-		printf("map start error\n");
+		printf("⚠️ map start error ⚠️\n");
 		exit(0);
 	}
 	if (!ft_strcmp(line, "##start"))

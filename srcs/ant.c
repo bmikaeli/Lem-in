@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/19 11:47:26 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/03/12 15:09:55 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/03/12 15:20:09 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void		ft_print_start(int tmp, t_listt *list, t_env *env, t_listt *start)
 {
 	if (!list->next)
 	{
-		ft_putendl("⚠️  theres a problem, somewhere... can't help u more ⚠️ \n");
+		ft_putendl("⚠️ theres a problem, can't help u more ⚠️\n");
 		exit(1);
 	}
 	if (list->next && list && !ft_strcmp(list->name, start->name))

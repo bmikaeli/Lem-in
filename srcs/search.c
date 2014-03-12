@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/17 15:13:46 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/03/12 14:56:44 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/03/12 15:15:47 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ char		*ft_search_first(t_env *env, char *room)
 	while (env->k-- >= 0)
 	{
 		tmp = ft_strsplit(env->tube[env->k], '-');
-		if (!tmp[0] || !tmp[1])
+		if (!tmp[0] || !tmp[1] || !room)
 		{
-			ft_putstr("map_error ( split error )\n");
+			ft_putstr("⚠️  map_error ( split error )⚠️ \n");
 			exit(1);
 		}
 		if (!ft_strcmp(tmp[0], room))
@@ -97,7 +97,7 @@ char		*ft_search(t_env *env, char *room, int k)
 		tmp = ft_strsplit(env->tube[i_tmp], '-');
 		if (!tmp[0] || !tmp[1])
 		{
-			ft_putstr("map_error ( split error )\n");
+			ft_putstr("⚠️  map_error ( split error )⚠️ \n");
 			exit(1);
 		}
 		if (!ft_strcmp(tmp[0], room) || !ft_strcmp(tmp[1], room))

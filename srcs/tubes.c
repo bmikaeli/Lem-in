@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/19 11:44:37 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/03/12 15:05:18 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/03/12 15:15:35 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_del_tube_start(t_env *env, int i)
 	tmp = ft_strsplit (env->tube[i], '-');
 	if (!tmp[0] || !tmp[1])
 	{
-		ft_putstr("map_error (split error), Maybe map error ?\n");
+		ft_putstr("⚠️ map_error (split error), Maybe map error ?⚠️\n");
 		exit(1);
 	}
 	if (!ft_strcmp(tmp[0], env->name_s) || !ft_strcmp(tmp[1], env->name_s))
