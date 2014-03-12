@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/11 15:50:44 by aelola            #+#    #+#             */
-/*   Updated: 2014/02/20 13:22:33 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/03/12 14:56:32 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void		init_env(t_env *env)
 	env->tmp2 = NULL;
 	env->name_s = ft_strdup("kikoololilol");
 	env->name_e = ft_strdup("kikoololilol");
-	env->tmp = (char **)malloc(sizeof(env->tmp) * 255);
+	env->tmp = (char **)malloc(sizeof(env->tmp) * 300);
 }
 
 int			main(void)
@@ -37,6 +37,7 @@ int			main(void)
 	env.nb_fourmie = ft_atoi(env.line);
 	while (get_next_line(0, &env.line) == 1)
 		ft_stock(&env, env.line, env.tmp, &list);
+	ft_putchar('\n');
 	ft_stock_tube(&env, env.tmp);
 	list = *(add_list(ft_search_first(&env, env.name_s), &list, &env));
 	env.tmpk = env.k;

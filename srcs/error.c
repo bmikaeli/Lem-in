@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/19 11:47:26 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/02/20 13:45:00 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/03/12 14:56:47 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	check_boucle(char *name)
 {
-	static char	*last_name;
+	static char		*last_name;
 
 	if (last_name == name)
 	{

@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/19 11:44:37 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/02/20 13:45:20 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/03/12 15:05:18 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,12 @@ int		ft_del_tube_start(t_env *env, int i)
 	char	**tmp;
 
 	tmp = ft_strsplit (env->tube[i], '-');
-	if (ft_strcmp(tmp[0], env->name_s) == 0
-		|| ft_strcmp(tmp[1], env->name_s) == 0)
+	if (!tmp[0] || !tmp[1])
+	{
+		ft_putstr("map_error (split error), Maybe map error ?\n");
+		exit(1);
+	}
+	if (!ft_strcmp(tmp[0], env->name_s) || !ft_strcmp(tmp[1], env->name_s))
 	{
 		ft_del_tube(env, i);
 		return (1);
@@ -59,6 +63,7 @@ void	print_path(int nb_ant, char *room)
 	ft_putstr("L");
 	ft_putnbr(nb_ant);
 	ft_putchar(' ');
-	ft_putstr(room);
+	if (ft_strcmp(room, "kikoololilol"))
+		ft_putstr(room);
 	ft_putstr(" ");
 }
