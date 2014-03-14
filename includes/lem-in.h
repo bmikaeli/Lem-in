@@ -46,7 +46,7 @@ typedef struct		s_listt
 	struct s_listt	*prev;
 }					t_listt;
 
-void		print_path(int nb_ant, char *room);
+void		print_path(int nb_ant, char *room, t_env *e);
 char		*ft_search(t_env *env, char *room, int k);
 t_listt		*add_list(char *name, t_listt *list, t_env *env);
 int			ft_del_tube(t_env *env, int i);
@@ -58,7 +58,7 @@ void		ft_stock_tube(t_env *env, char *tmp[]);
 void		init_env(t_env *env);
 void		ft_fill_list(t_listt *list, t_env *env, char *room);
 void		ft_print_ant_way(t_listt *list, t_env *env);
-void		check_boucle(char *name);
+void		check_boucle(int nb_ant, char *name, t_env *e);
 
 #endif /* !LEM-IN_H */
 

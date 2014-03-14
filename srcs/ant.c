@@ -30,7 +30,7 @@ int			ft_print_last(t_env *env, t_listt *list, int tmp)
 {
 	if (env->z == 1)
 	{
-		print_path(tmp - 1, env->name_e);
+		print_path(tmp - 1, env->name_e, env);
 		env->z = 0;
 	}
 	if (list->next && !ft_strcmp(list->next->name, env->name_e))
@@ -52,7 +52,7 @@ void		ft_print_start(int tmp, t_listt *list, t_env *env, t_listt *start)
 	if (list->next && list && !ft_strcmp(list->name, start->name))
 	{
 		if (tmp < env->nb_fourmie)
-			print_path(tmp, list->name);
+			print_path(tmp, list->name, env);
 		list->next->rempli = FULL;
 		list->rempli = EMPTY;
 		tmp++;
@@ -71,7 +71,7 @@ int			ft_print(t_listt *list, t_listt *start, t_env *env, int tmp)
 	while (list && ft_strcmp(list->name, start->name))
 	{
 		if (tmp < env->nb_fourmie)
-			print_path(tmp, list->name);
+			print_path(tmp, list->name, env);
 		if (list->next && !ft_strcmp(list->next->name, env->name_e))
 			list->rempli = EMPTY;
 		else

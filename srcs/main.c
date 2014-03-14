@@ -34,7 +34,8 @@ int			main(void)
 
 	init_env(&env);
 	get_next_line(0, &env.line);
-	env.nb_fourmie = ft_atoi(env.line);
+	ft_putnbr(env.nb_fourmie = ft_atoi(env.line));
+	ft_putchar('\n');
 	while (get_next_line(0, &env.line) == 1)
 		ft_stock(&env, env.line, env.tmp, &list);
 	ft_putchar('\n');
