@@ -6,7 +6,7 @@
 /*   By: bmikaeli <bmikaeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/19 11:47:26 by bmikaeli          #+#    #+#             */
-/*   Updated: 2014/03/12 14:56:47 by bmikaeli         ###   ########.fr       */
+/*   Updated: 2014/03/22 11:41:25 by bmikaeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_boucle(int nb_ant, char *name, t_env *e)
 		exit(1);
 	}
 	i++;
-	if (i %  e->nb_fourmie == 1)
+	if (i % e->nb_fourmie == 1)
 	{
 		last_ant[0][0] = nb_ant;
 		ft_strcpy(last_ant[1], name);
